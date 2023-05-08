@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Layout from "./Layout/Layout";
+import { Route, Routes } from "react-router-dom";
+import { DEFAULT_PAGE, MARKETS_PAGE } from "./AppUrls";
+import { MainPage, Markets } from "./pages";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path={DEFAULT_PAGE} Component={MainPage} />
+        <Route path={MARKETS_PAGE} Component={Markets} />
+      </Routes>
+    </Layout>
   );
-}
+};
 
 export default App;
