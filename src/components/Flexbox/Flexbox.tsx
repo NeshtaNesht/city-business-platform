@@ -15,6 +15,7 @@ type FlexboxProps = {
   height?: string;
   gap?: number;
   children: ReactNode;
+  wrap?: "wrap" | "nowrap";
 } & HTMLProps<HTMLDivElement>;
 
 const Flexbox: React.FC<FlexboxProps> = ({
@@ -27,6 +28,7 @@ const Flexbox: React.FC<FlexboxProps> = ({
   height,
   style,
   gap,
+  wrap,
   ...other
 }) => {
   const styles = { ...style, width, height, gap };
@@ -41,6 +43,7 @@ const Flexbox: React.FC<FlexboxProps> = ({
         [css["align-c"]]: align === "center",
         [css["align-fs"]]: align === "flex-start",
         [css["align-fe"]]: align === "flex-end",
+        [css["wrap"]]: wrap === "wrap",
       })}
       style={styles}
       {...other}

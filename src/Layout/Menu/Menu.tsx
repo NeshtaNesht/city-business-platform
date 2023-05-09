@@ -9,6 +9,7 @@ const LayoutMenu = () => {
   const nav = useNavigate();
   const currentPage = useAppSelector((state) => state.app.currentPage);
   if (!currentPage) return null;
+
   return (
     <Menu
       mode="inline"

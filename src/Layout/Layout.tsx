@@ -1,5 +1,5 @@
-import React, { useLayoutEffect, useState } from "react";
-import { Layout, Typography } from "antd";
+import React, { useEffect, useState } from "react";
+import { FloatButton, Layout, Typography } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import { DEFAULT_PAGE } from "../AppUrls";
 import LayoutMenu from "./Menu/Menu";
@@ -24,34 +24,45 @@ const AppLayout: React.FC<LayoutProps> = ({ children }) => {
     localStorage.setItem(COLLAPSIBLE_MENU_KEY, String(collapsed));
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     dispatch(setCurrentPage(pathname));
   }, [dispatch, pathname]);
 
   return (
-    <Layout style={{ height: "100vh" }}>
-      <Header style={{ display: "flex", width: "100%", alignItems: "center" }}>
-        <Typography.Title
-          level={4}
-          style={{ color: "#fff", margin: 0, cursor: "pointer" }}
-          onClick={() => nav(DEFAULT_PAGE)}
-        >
-          Городская бизнес-платформа
-        </Typography.Title>
-      </Header>
+    <Layout hasSider>
       <Layout>
         <Sider
           width={200}
           collapsible
           collapsed={isCollapsed}
           onCollapse={onCollapse}
+          style={{
+            overflow: "auto",
+            height: "100%",
+            left: 0,
+            top: 0,
+            bottom: 0,
+            zIndex: 1,
+          }}
         >
           <LayoutMenu />
         </Sider>
-        <Layout style={{ padding: "24px 12px" }}>
-          <Content>{children}</Content>
+        <Layout>
+          <Header
+            style={{ display: "flex", width: "100%", alignItems: "center" }}
+          >
+            <Typography.Title
+              level={4}
+              style={{ color: "#fff", margin: 0, cursor: "pointer" }}
+              onClick={() => nav(DEFAULT_PAGE)}
+            >
+              Городская бизнес-платформа
+            </Typography.Title>
+          </Header>
+          <Content style={{ padding: "12px 24px" }}>{children}</Content>
         </Layout>
       </Layout>
+      <FloatButton.BackTop type="primary" />
     </Layout>
   );
 };

@@ -1,0 +1,28 @@
+.market-card {
+  border: 1px solid var(--gray300);
+  padding: 12px;
+  min-width: 350px;
+  max-width: 250px;
+  max-height: 350px;
+  min-height: 350px;
+  cursor: pointer;
+  transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.market-card:hover {
+  transform: translateY(-10px);
+  -webkit-box-shadow: var(--default-box-shadow);
+  -moz-box-shadow: var(--default-box-shadow);
+  box-shadow: var(--default-box-shadow);
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin: 0;
+  display: -webkit-box;
+}

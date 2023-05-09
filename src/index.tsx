@@ -12,13 +12,11 @@ const root = ReactDOM.createRoot(
 );
 document.title = "Городская бизнес-платформа";
 root.render(
-  <React.StrictMode>
-    <ConfigProvider>
-      <BrowserRouter>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </BrowserRouter>
-    </ConfigProvider>
-  </React.StrictMode>
+  <ConfigProvider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  </ConfigProvider>
 );
