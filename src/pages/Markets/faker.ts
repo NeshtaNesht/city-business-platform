@@ -1,12 +1,5 @@
 import { faker } from "@faker-js/faker/locale/ru";
-
-export type MarketsData = {
-  id: string;
-  shortName: string;
-  address: string;
-  img: string;
-  category: string;
-};
+import { MarketsData } from "src/store";
 
 export const createMarkets = (): MarketsData => {
   return {
@@ -14,6 +7,7 @@ export const createMarkets = (): MarketsData => {
     shortName: faker.company.name(),
     address: faker.address.street(),
     img: faker.image.business(300, 200, true),
-    category: faker.company.catchPhrase(),
+    category: faker.commerce.productName(),
+    description: faker.commerce.productDescription(),
   };
 };

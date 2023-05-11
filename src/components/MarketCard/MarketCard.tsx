@@ -1,10 +1,10 @@
 import React from "react";
-import { MarketsData } from "src/pages/Markets/faker";
 import Flexbox from "../Flexbox/Flexbox";
 import { EnvironmentOutlined } from "@ant-design/icons";
 import { Divider } from "antd";
 import css from "./MarketCard.module.css";
 import TooltipTitle from "../TooltipTitle/TooltipTitle";
+import { MarketsData } from "src/store";
 
 type MarketCardProps = {
   market: MarketsData;
@@ -20,7 +20,7 @@ const MarketCard: React.FC<MarketCardProps> = ({ market, onClick }) => {
 
   return (
     <Flexbox
-      gap={8}
+      gap="mini"
       layout="vertical"
       className={css["market-card"]}
       onClick={onClickElement}
@@ -31,7 +31,7 @@ const MarketCard: React.FC<MarketCardProps> = ({ market, onClick }) => {
       <Divider style={{ margin: 0 }} />
       <img src={img} />
       <span>{category}</span>
-      <Flexbox gap={8} align="center">
+      <Flexbox gap="mini" align="center">
         <EnvironmentOutlined />
         <span>{address}</span>
       </Flexbox>

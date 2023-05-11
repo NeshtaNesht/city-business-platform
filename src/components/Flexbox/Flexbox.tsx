@@ -13,7 +13,7 @@ type FlexboxProps = {
   layout?: "vertical" | "horizontal";
   width?: string;
   height?: string;
-  gap?: number;
+  gap?: "mini" | "small" | "default" | "large";
   children: ReactNode;
   wrap?: "wrap" | "nowrap";
 } & HTMLProps<HTMLDivElement>;
@@ -31,7 +31,7 @@ const Flexbox: React.FC<FlexboxProps> = ({
   wrap,
   ...other
 }) => {
-  const styles = { ...style, width, height, gap };
+  const styles = { ...style, width, height, gap: getGap(gap) };
   return (
     <div
       className={cx(css["flexbox"], className, {
@@ -51,6 +51,21 @@ const Flexbox: React.FC<FlexboxProps> = ({
       {children}
     </div>
   );
+};
+
+const getGap = (gap: FlexboxProps["gap"]) => {
+  switch (gap) {
+    case "large":
+      return "var(--spacing-large)";
+    case "mini":
+      return "var(--spacing-mini)";
+    case "default":
+      return "var(--spacing-default)";
+    case "small":
+      return "var(--spacing-small)";
+    default:
+      return 0;
+  }
 };
 
 export type { FlexboxProps };
