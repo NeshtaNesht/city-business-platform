@@ -1,0 +1,8 @@
+.content {
+  padding: 12px var(--spacing-default);
+  flex: auto;
+}
+
+.content__stretch {
+  height: calc(100vh - 64px - var(--spacing-default));
+}
