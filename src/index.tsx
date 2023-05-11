@@ -11,9 +11,10 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 document.title = "Городская бизнес-платформа";
+
 root.render(
   <ConfigProvider>
-    <BrowserRouter>
+    <BrowserRouter basename="city-business-platform">
       <Provider store={store}>
         <App />
       </Provider>

@@ -38,4 +38,5 @@ execSync(`git checkout main`);
 execSync(`git pull origin ${branchName}`);
 execSync("git push origin main");
 console.log("Ветка main запушена");
+execSync("git checkout develop");
 process.exit(0);
