@@ -41,12 +41,13 @@ console.log(`Ветка ${branchName} запушена`);
 execSync(`git checkout main`);
 try {
   execSync('rmdir /s /q "./docs"');
+  execSync("git add *");
+  execSync(`git commit -m deleteFolder`);
+  execSync(`git push origin main`);
 } catch {
   console.log("Отсутствует папка для удаления. Продолжаем...");
 }
-execSync("git add *");
-execSync(`git commit -m deleteFolder`);
-execSync(`git push origin main`);
+
 execSync(`git pull -X theirs origin ${branchName}`);
 execSync("git push origin main");
 console.log("Ветка main запушена");
