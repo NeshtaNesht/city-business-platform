@@ -14,7 +14,7 @@ document.title = "Городская бизнес-платформа";
 
 root.render(
   <ConfigProvider>
-    <BrowserRouter basename="city-business-platform">
+    <BrowserRouter>
       <Provider store={store}>
         <App />
       </Provider>
