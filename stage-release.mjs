@@ -39,7 +39,7 @@ execSync(`git commit -m ${branchName}`);
 execSync(`git push origin ${branchName}`);
 console.log(`Ветка ${branchName} запушена`);
 execSync(`git checkout main`);
-execSync(`git pull -s recursive -X theirs origin`);
+execSync(`git pull -X theirs origin develop`);
 execSync("git push origin main");
 console.log("Ветка main запушена");
 execSync("git checkout develop");
