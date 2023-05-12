@@ -18,8 +18,13 @@ if (!file) {
 }
 
 file.version = version;
+const branchName = `release/${version}`;
+
 writeFileSync(fileName, JSON.stringify(file, null, 2));
 console.log("Версия указана");
+execSync("git add *");
+execSync(`git commit -m prerelease/${branchName}`);
+execSync(`git push origin develop`);
 console.log("Собираю проект...");
 try {
   execSync("npm run build");
@@ -28,7 +33,6 @@ try {
 }
 execSync('move "./build" "./docs"');
 console.log("Сборка готова");
-const branchName = `release/${version}`;
 execSync(`git checkout -b ${branchName}`);
 execSync("git add *");
 execSync(`git commit -m ${branchName}`);
