@@ -31,7 +31,7 @@ try {
 } catch (e) {
   console.log("error", e);
 }
-execSync('move "./build" "./docs-build"');
+execSync('move "./build" "./docs"');
 console.log("Сборка готова");
 execSync(`git checkout -b ${branchName}`);
 execSync("git add *");
@@ -43,8 +43,7 @@ execSync('rmdir /s /q "./docs"');
 execSync("git add *");
 execSync(`git commit -m deleteFolder`);
 execSync(`git push origin main`);
-execSync('move "./docs-build" "./docs"');
-execSync(`git pull -X theirs origin develop`);
+execSync(`git pull -X theirs origin ${branchName}`);
 execSync("git push origin main");
 console.log("Ветка main запушена");
 execSync("git checkout develop");
