@@ -1,6 +1,6 @@
 {
   "name": "city-business-platform",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
@@ -23,7 +23,7 @@
     "eject": "react-scripts eject",
     "stage-release": "node stage-release.mjs"
   },
-  "homepage": "https://neshtanesht.github.io/city-business-platform/",
+  "homepage": "https://neshtanesht.github.io/city-business-platform",
   "eslintConfig": {
     "extends": [
       "react-app",
