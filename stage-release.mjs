@@ -33,6 +33,11 @@ try {
 }
 execSync('move "./build" "./docs"');
 console.log("Сборка готова");
+try {
+  execSync(`git checkout -b ${branchName}`);
+} catch {
+  execSync(`git branch -D ${branchName}`);
+}
 execSync(`git checkout -b ${branchName}`);
 execSync("git add *");
 execSync(`git commit -m ${branchName}`);
