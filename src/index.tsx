@@ -12,9 +12,15 @@ const root = ReactDOM.createRoot(
 );
 document.title = "Городская бизнес-платформа";
 
+// document.baseURI.substring(
+//   document.baseURI.indexOf(window.location.origin) +
+//     window.location.origin.length,
+//   document.baseURI.lastIndexOf("/")
+// )
+
 root.render(
   <ConfigProvider>
-    <BrowserRouter basename="/city-business-platform">
+    <BrowserRouter basename="city-business-platform">
       <Provider store={store}>
         <App />
       </Provider>
