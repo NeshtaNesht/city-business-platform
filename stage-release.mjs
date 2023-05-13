@@ -37,8 +37,8 @@ try {
   execSync(`git checkout -b ${branchName}`);
 } catch {
   execSync(`git branch -D ${branchName}`);
+  execSync(`git checkout -b ${branchName}`);
 }
-execSync(`git checkout -b ${branchName}`);
 execSync("git add *");
 execSync(`git commit -m ${branchName}`);
 execSync(`git push origin ${branchName}`);
