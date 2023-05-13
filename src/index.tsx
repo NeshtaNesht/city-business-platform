@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { ConfigProvider } from "antd";
 import App from "./App";
@@ -20,10 +20,10 @@ document.title = "Городская бизнес-платформа";
 
 root.render(
   <ConfigProvider>
-    <BrowserRouter basename="city-business-platform">
+    <HashRouter>
       <Provider store={store}>
         <App />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   </ConfigProvider>
 );
