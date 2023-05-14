@@ -1,12 +1,44 @@
-import React, { memo, useState } from "react";
+import React, { CSSProperties, memo, useState } from "react";
 import { Layout, Menu } from "antd";
 import { useNavigate } from "react-router-dom";
-import { DEFAULT_PAGE, MARKETS_PAGE } from "../../AppUrls";
+import { DEFAULT_PAGE, MARKETS_PAGE, PRODUCTS_PAGE } from "../../AppUrls";
 import { useAppSelector } from "../../hooks";
-import { HomeOutlined, ShoppingOutlined } from "@ant-design/icons";
+import {
+  HomeOutlined,
+  InboxOutlined,
+  ShoppingOutlined,
+} from "@ant-design/icons";
 import { COLLAPSIBLE_MENU_KEY } from "src/const";
+import { MenuInfo } from "rc-menu/lib/interface";
 
 const { Sider } = Layout;
+
+const siderStyle: CSSProperties = {
+  overflow: "auto",
+  height: "100%",
+  left: 0,
+  top: 0,
+  bottom: 0,
+  zIndex: 1,
+};
+
+const menuItems = [
+  {
+    key: DEFAULT_PAGE,
+    label: "Главная страница",
+    icon: <HomeOutlined />,
+  },
+  {
+    key: MARKETS_PAGE,
+    label: "Магазины",
+    icon: <ShoppingOutlined />,
+  },
+  {
+    key: PRODUCTS_PAGE,
+    label: "Товары",
+    icon: <InboxOutlined />,
+  },
+];
 
 const LayoutMenu = () => {
   const [isCollapsed, setIsCollapsed] = useState(
@@ -19,6 +51,10 @@ const LayoutMenu = () => {
     localStorage.setItem(COLLAPSIBLE_MENU_KEY, String(collapsed));
   };
 
+  const onClickPage = ({ key }: MenuInfo) => {
+    nav(key);
+  };
+
   if (!currentPage) return null;
 
   return (
@@ -27,32 +63,13 @@ const LayoutMenu = () => {
       collapsible
       collapsed={isCollapsed}
       onCollapse={onCollapse}
-      style={{
-        overflow: "auto",
-        height: "100%",
-        left: 0,
-        top: 0,
-        bottom: 0,
-        zIndex: 1,
-      }}
+      style={siderStyle}
     >
       <Menu
         mode="inline"
         theme="dark"
-        items={[
-          {
-            key: DEFAULT_PAGE,
-            label: "Главная страница",
-            icon: <HomeOutlined />,
-            onClick: () => nav(DEFAULT_PAGE),
-          },
-          {
-            key: MARKETS_PAGE,
-            label: "Магазины",
-            icon: <ShoppingOutlined />,
-            onClick: () => nav(MARKETS_PAGE),
-          },
-        ]}
+        items={menuItems}
+        onClick={onClickPage}
         activeKey={currentPage}
         selectedKeys={[currentPage]}
       />

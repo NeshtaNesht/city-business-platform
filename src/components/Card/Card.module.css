@@ -1,4 +1,4 @@
-.market-card {
+.card {
   border: 1px solid var(--gray300);
   padding: 12px;
   min-width: 350px;
@@ -11,7 +11,7 @@
   -webkit-transition: all 0.3s;
 }
 
-.market-card:hover {
+.card:hover {
   transform: translateY(-10px);
   -webkit-box-shadow: var(--default-box-shadow);
   -moz-box-shadow: var(--default-box-shadow);
