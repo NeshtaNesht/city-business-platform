@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
 import { Flexbox, MarketCard, Spinner } from "src/components";
 import { createMarkets } from "./faker";
-import { Button } from "antd";
+import { Button, Typography } from "antd";
 import { MarketsData, setAddonTitle } from "src/store";
 import { useAppDispatch } from "src/hooks";
 import { setMarket } from "src/store/market/marketSlice";
@@ -37,6 +37,9 @@ const Markets = () => {
 
   return (
     <Flexbox layout="vertical" height="100%" width="100%" gap="small">
+      <Typography.Title style={{ margin: 0 }} level={3}>
+        Список магазинов города
+      </Typography.Title>
       <Button
         onClick={onRefresh}
         loading={isLoading}

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/city-business-platform/static/css/main.6f5abbed.css",
+    "main.js": "/city-business-platform/static/js/main.fe8f3b3f.js",
+    "index.html": "/city-business-platform/index.html",
+    "main.6f5abbed.css.map": "/city-business-platform/static/css/main.6f5abbed.css.map",
+    "main.fe8f3b3f.js.map": "/city-business-platform/static/js/main.fe8f3b3f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6f5abbed.css",
+    "static/js/main.fe8f3b3f.js"
+  ]
+}
